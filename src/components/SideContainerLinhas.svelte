@@ -1,4 +1,6 @@
-<section aria-labelledby="slide-over-title" role="dialog" aria-modal="true" class="fixed z-20 w-full top-0 pt-12 max-w-xs right-0 h-full" style="display: none;">
+<section aria-labelledby="slide-over-title" role="dialog" aria-modal="true" 
+  class="fixed z-20 w-full top-0 pt-12 max-w-xs left-0 h-full" style="display: none;"
+  >
   <div class="w-screen max-w-xs h-full">
     <div class="h-full flex flex-col bg-white border-l">
       <div class="px-6 bg-gray-50 py-4 border-b">

@@ -126,6 +126,8 @@
 
   function handleFinalize(e) {
     const {items: newItems, info: {source}} = e.detail;
+    console.log('finalizou pelo board')
+
 		items = e.detail.items;
     if (source === SOURCES.POINTER) {
 			dragDisabled = true;

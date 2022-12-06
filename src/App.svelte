@@ -6,6 +6,8 @@
     import DragHost from "./components/dragHost.svelte";
   import Header from "./components/Header.svelte";
   import SideAbas from "./components/SideAbas.svelte";
+    import SideContainerConfigs from "./components/SideContainerConfigs.svelte";
+    import SideContainerLinhas from "./components/SideContainerLinhas.svelte";
 
   let tabComponentes = true
   let tabLinhas = false
@@ -37,16 +39,8 @@
   </div>
   <div><!----></div>
   <!-- DragHost |Colocar caso seja necessário|-->
-  <div class="w-full">
-    <Header />
-    <BoardDrag />
-  </div>
-  <div class="w-full max-w-xs pt-16"></div><!-- para dar um padding top e encaixar no layout-->
-  <div class="pt-16">
-    <!-- SideContainerLinhas -->
-    <!-- SideContainerConfigs -->
-  </div>
-  <div class="bg-gray-50 border-l w-full max-w-xs fixed z-10 right-0 h-screen pt-16">
+  
+  <div class="bg-gray-50 border-r w-full max-w-xs fixed z-10 left-0 h-screen pt-16">
     <SideAbas on:changeTabs={handleChangeTabs} />
     <!-- ABA componentes-->
     <AbaComponentes displayAbaComponentes={tabComponentes} />
@@ -56,4 +50,14 @@
     <AbaConfiguracoes displayAbaConfiguracoes={tabConfiguracoes} />
   </div>
   <!---->
+  <div class="w-full max-w-xs pt-16"></div><!-- para dar um padding top e encaixar no layout-->
+  <div class="pt-16">
+    <SideContainerLinhas />
+    <SideContainerConfigs />
+  </div>
+  <div class="w-full">
+    <Header />
+    <BoardDrag />
+  </div>
+  
 </div>
