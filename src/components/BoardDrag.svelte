@@ -115,8 +115,20 @@
       ]
     },
 	];
+
+  function copyComponent(id, items) {
+    console.warn(`copying ${id}`);
+    const idx = items.findIndex(item => item.id === id);
+    const newId = `${id}_copy_${Math.round(Math.random()*100000)}`;
+    let coyA = items.splice(idx, 0, {...items[idx], id: newId});
+    console.log(coyA)
+  }
   function handleConsider(e) {
-    const {items: newItems, info: {source, trigger}} = e.detail;
+    const {items: newItems, info: {source, trigger, id}} = e.detail;
+    console.log(trigger, id)
+    if (trigger === TRIGGERS.DRAG_STARTED) {
+      // e.detail.items = copyComponent(id, items)
+    }
 		items = e.detail.items;
     // Ensure dragging is stopped on drag finish via keyboard
 		if (source === SOURCES.KEYBOARD && trigger === TRIGGERS.DRAG_STOPPED) {
@@ -129,6 +141,7 @@
     console.log('finalizou pelo board')
 
 		items = e.detail.items;
+    //habilitar o draganddrop pelo botão superior do hover
     if (source === SOURCES.POINTER) {
 			dragDisabled = true;
 		}
@@ -153,7 +166,7 @@
 		if ((e.key === "Enter" || e.key === " ") && dragDisabled) dragDisabled = false;
 	}
 </script>
-<div class="h-full max-h-screen overflow-y-auto">
+<div class="h-full max-h-screen w-full overflow-y-auto fixed left-0 pl-[330px]">
   <div class="px-6 py-4 relative mt-16" style="background-color: rgb(246, 246, 246);">
     <div class="flex-col flex z-10 relative"
       style="min-height: 100px; background-color: rgb(239, 241, 243); 
@@ -165,9 +178,7 @@
     >
       {#each items as item, key (item.id)}
         <div class="flex relative border-2 border-transparent"
-          class:border-gray-100={hoverItem}
-          class:border-dashed={item[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
-          class:border-indigo-500={item[SHADOW_ITEM_MARKER_PROPERTY_NAME]}
+          
           animate:flip={{duration:flipDurationMs}}
           on:mouseover={() => handleMouseEnterComponent(item)}
           on:focus={() => console.log('')}

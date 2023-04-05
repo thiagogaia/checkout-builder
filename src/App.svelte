@@ -40,6 +40,11 @@
   <div><!----></div>
   <!-- DragHost |Colocar caso seja necessário|-->
   
+  
+  <div class="w-full">
+    <Header />
+    
+  </div>
   <div class="bg-gray-50 border-r w-full max-w-xs fixed z-10 left-0 h-screen pt-16">
     <SideAbas on:changeTabs={handleChangeTabs} />
     <!-- ABA componentes-->
@@ -49,15 +54,11 @@
     <!-- ABA configurações-->
     <AbaConfiguracoes displayAbaConfiguracoes={tabConfiguracoes} />
   </div>
+  <BoardDrag />
   <!---->
   <div class="w-full max-w-xs pt-16"></div><!-- para dar um padding top e encaixar no layout-->
   <div class="pt-16">
     <SideContainerLinhas />
     <SideContainerConfigs />
   </div>
-  <div class="w-full">
-    <Header />
-    <BoardDrag />
-  </div>
-  
 </div>
