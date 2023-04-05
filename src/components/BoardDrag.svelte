@@ -4,7 +4,10 @@
   import ComponenteGap from "./ComponenteGap.svelte";
   import ComponenteHeader from "./ComponenteHeader.svelte";
   import ContainerEmpty from "./ContainerEmpty.svelte";
-
+  //velocidade
+  //manutenção
+  //qualidade do builder
+  //documentação
   import {
     dndzone, 
     SHADOW_ITEM_MARKER_PROPERTY_NAME, 
@@ -125,7 +128,6 @@
   }
   function handleConsider(e) {
     const {items: newItems, info: {source, trigger, id}} = e.detail;
-    console.log(trigger, id)
     if (trigger === TRIGGERS.DRAG_STARTED) {
       // e.detail.items = copyComponent(id, items)
     }
@@ -138,7 +140,7 @@
 
   function handleFinalize(e) {
     const {items: newItems, info: {source}} = e.detail;
-    console.log('finalizou pelo board')
+    console.log('finalizou pelo board', newItems)
 
 		items = e.detail.items;
     //habilitar o draganddrop pelo botão superior do hover

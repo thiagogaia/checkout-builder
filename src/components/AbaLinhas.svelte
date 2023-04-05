@@ -99,11 +99,15 @@
         }
       ]
     },
+    
   ]
   let dragDisabled = false
   let type = 'dragLines'
   function handleConsider(e) {
-		items = e.detail.items;
+    const {items: newItems, info: {source, trigger, id}} = e.detail;
+    const idx = items.findIndex(item => item.id === id)
+    console.log(trigger, id, e.detail, idx)
+		items = e.detail.items
 	}
 
   function handleFinalize(e) {

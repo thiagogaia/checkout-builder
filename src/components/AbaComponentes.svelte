@@ -1,4 +1,5 @@
 <script>
+    import Extras from "./Extras.svelte";
   import Others from "./Others.svelte";
   export let displayAbaComponentes = true
 
@@ -44,7 +45,7 @@
     <!--Others -->
     <Others />
   </div>
-  <!-- Extras-->
+  <!-- <Extras /> -->
 </div>
 
 <style>
